@@ -29,7 +29,7 @@ export const AuthCard = ({
     <Card>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardDescription>Sprout & Scribble Description</CardDescription>
       </CardHeader>
       <CardContent>{children}</CardContent>
 
