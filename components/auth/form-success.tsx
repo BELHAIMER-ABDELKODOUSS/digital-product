@@ -7,7 +7,7 @@ export const FormSuccess = ({ message }: { message?: string }) => {
   }
   console.log(message);
   return (
-    <div className="bg-teal-400 flex items-center gap-2 text-secondary-foreground p-3 rounded-md">
+    <div className="bg-teal-400/50 flex items-center gap-2 text-secondary-foreground p-3 rounded-md">
       <CheckCircle className="w-4 h-4" />
       <p>{message}</p>
     </div>

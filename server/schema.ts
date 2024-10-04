@@ -14,7 +14,6 @@ import { createId } from "@paralleldrive/cuid2";
 
 export const RoleEnum = pgEnum("roles", ["user", "admin"]);
 
-
 export const users = pgTable("user", {
   id: text("id")
     .primaryKey()
@@ -67,5 +66,36 @@ export const emailTokens = pgTable(
     compositePk: primaryKey({
       columns: [emailToken.id, emailToken.token],
     }),
+  })
+);
+
+export const passwordResetTokens = pgTable(
+  "password_reset_tokens",
+  {
+    id: text("id")
+      .notNull()
+      .$defaultFn(() => createId()),
+    token: text("token").notNull(),
+    expires: timestamp("expires", { mode: "date" }).notNull(),
+    email: text("email").notNull(),
+  },
+  (vt) => ({
+    compoundKey: primaryKey({ columns: [vt.id, vt.token] }),
+  })
+);
+
+export const twoFactorTokens = pgTable(
+  "two_factor_tokens",
+  {
+    id: text("id")
+      .notNull()
+      .$defaultFn(() => createId()),
+    token: text("token").notNull(),
+    expires: timestamp("expires", { mode: "date" }).notNull(),
+    email: text("email").notNull(),
+    userID: text("userID").references(() => users.id, { onDelete: "cascade" }),
+  },
+  (vt) => ({
+    compoundKey: primaryKey({ columns: [vt.id, vt.token] }),
   })
 );

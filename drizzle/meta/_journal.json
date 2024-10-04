@@ -43,6 +43,13 @@
       "when": 1727704590028,
       "tag": "0005_wonderful_sunset_bain",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1728001984659,
+      "tag": "0006_chemical_omega_sentinel",
+      "breakpoints": true
     }
   ]
 }

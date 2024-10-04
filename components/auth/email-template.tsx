@@ -8,6 +8,8 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   confirmLink,
 }) => (
   <div>
-    <h1>Click Here, {confirmLink}!</h1>
+    <h1>
+      Confirm Your Registration, <a href={confirmLink}>Here</a> !
+    </h1>
   </div>
 );
